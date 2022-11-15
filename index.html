@@ -10,11 +10,104 @@
             margin: 0;
             overflow: hidden;
         }
-    </style>
+        .button{
+            position: fixed;
+            top: 100vh;
+            transform: translateY(-100%);
+        }
+/* copied from https://getcssscan.com/css-buttons-examples */
+.button-19 {
+  appearance: button;
+  background-color: #1899D6;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: din-round,sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 13px 16px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.button-19:after {
+  background-clip: padding-box;
+  background-color: #1CB0F6;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.button-19:main,
+.button-19:focus {
+  user-select: auto;
+}
+
+.button-19:hover:not(:disabled) {
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
+}
+
+.button-19:disabled {
+  cursor: auto;
+}
+        </style>
 </head>
 <body>
-   <div id="ppt"></div>
-   <iframe src="https://diakoffice-my.sharepoint.com/personal/penzboti_sulid_hu/_layouts/15/Doc.aspx?sourcedoc={c5ee2119-8a07-44f4-8f6f-0eefea248c2c}&amp;action=embedview&amp;wdAr=1.7777777777777777" frameborder="0" style="width: 100vw; height: 100vh;">Ez egy beágyazott <a target="_blank" href="https://office.com">Microsoft Office</a>-bemutató, amelynek szolgáltatója a(z) <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe> 
-   <div id="video"></div>
+
+    <div id="ppt">
+        <iframe src="https://diakoffice-my.sharepoint.com/personal/penzboti_sulid_hu/_layouts/15/Doc.aspx?sourcedoc={c5ee2119-8a07-44f4-8f6f-0eefea248c2c}&amp;action=embedview&amp;wdAr=1.7777777777777777" frameborder="0" style="width: 100vw; height: 100vh;">Ez egy beágyazott <a target="_blank" href="https://office.com">Microsoft Office</a>-bemutató, amelynek szolgáltatója a(z) <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+    </div>
+    <div id="video">
+        <iframe src="https://drive.google.com/file/d/1BAR5BdG5qvAWHc1h3_KY4b6xXih1uerJ/preview" style="width: 100vw; height: 100vh;" allow="autoplay"></iframe>
+    </div>
+
+    <div class="button">
+        <button type="button" id="button" onclick="Scroll();" class="button-19" role="button">↓</button>
+    </div>
+
+        <script>
+            var position = 1;
+    
+            function Scroll() {
+                position *= -1;
+                switch(position) {
+                    case 1: 
+                        window.scrollTo(0, -document.body.scrollHeight);
+                        document.getElementById("button").innerHTML = "↓";
+                        break;
+                    case -1:
+                        window.scrollTo(0, document.body.scrollHeight);
+                        document.getElementById("button").innerHTML = "↑";
+                        break;
+                }
+            }
+    
+        </script>
+
 </body>
 </html>
